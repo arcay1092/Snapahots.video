@@ -1,31 +1,84 @@
+/* Estilo general */
 body {
   font-family: sans-serif;
-  background: #f0f0f0;
+  background: slategray; /* gris medio claro */
   padding: 20px;
   text-align: center;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-button {
-  padding: 10px 20px;
-  margin: 10px 5px;
-  font-size: 16px;
-  border: none;
-  background: #4CAF50;
+.portada {
+  width: 100%;
+  background-color: #1976d2; /* Azul medio */
   color: white;
-  border-radius: 5px;
+  padding: 20px 10px;
+  text-align: center;
+  border-radius: 15px; /* Bordes redondeados */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra más notoria */
+  margin-bottom: 20px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.portada h1 {
+  margin: 0;
+  font-size: 2em;
+}
+/* Título */
+h1 {
+  font-size: 2em;
+  margin-top: 20px;
+  color: #333;
+}
+
+/* Estilo del input */
+input[type="file"] {
+  margin: 10px 0;
+  font-size: 1em;
+}
+
+/* Botones principales */
+button {
+  padding: 15px 25px;
+  margin: 10px 8px;
+  font-size: 18px;
+  border: none;
+  background: #888; /* gris más oscuro que el fondo */
+  color: white;
+  border-radius: 8px;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
+/* Hover con efecto visual */
 button:hover {
-  background: #45a049;
+  background: #666;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
+/* Contenedor de imágenes */
+#imagenes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+/* Tarjetas de imagen */
 .img-container {
   display: inline-block;
   margin: 10px;
   text-align: center;
 }
 
+/* Imagen individual */
 img {
   max-width: 180px;
   border: 1px solid #ccc;
@@ -34,12 +87,23 @@ img {
   margin-bottom: 5px;
 }
 
-#imagenes {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
+/* Canvas oculto */
 canvas {
   display: none;
+}
+
+/* Responsive para móviles */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.5em;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 12px 18px;
+  }
+
+  img {
+    max-width: 100%;
+  }
 }
