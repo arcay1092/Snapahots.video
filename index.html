@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Capturador de Fotos de Video</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Extraer 20 Fotos del Video</h1>
+
+  <input type="file" id="videoInput" accept="video/*"><br><br>
+
+  <button id="extraerBtn">Sacar Fotos</button>
+  <button id="limpiarBtn">Limpiar Todo</button>
+  <br><br>
+
+  <div id="imagenes"></div>
+
+  <video id="video" style="display:none;"></video>
+  <canvas id="canvas"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
