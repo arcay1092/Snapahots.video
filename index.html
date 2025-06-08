@@ -7,10 +7,10 @@
 </head>
 <body>
   <header class="portada">
-    <h1>Sube video y saca 20 fotografias</h1>
+    <h1>Sube video y saca 20 fotografías</h1>
   </header>
- 
-  <p>descarga la que te guste</p>
+
+  <p>Descarga la que te guste</p>
 
   <input type="file" id="videoInput" accept="video/*"><br><br>
 
@@ -18,10 +18,25 @@
   <button id="limpiarBtn">Limpiar Todo</button>
   <br><br>
 
+  <!-- Mensaje de instrucción después de sacar las fotos -->
+  <h2 id="mensajeToque" style="display: none; color: white;">Toca una foto para ampliarla</h2>
+
   <div id="imagenes"></div>
 
   <video id="video" style="display:none;"></video>
   <canvas id="canvas"></canvas>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <span id="cerrarModal">&times;</span>
+    <img id="imagenModal" class="imagen-modal" src="" alt="Imagen Ampliada">
+    <div class="botones-modal">
+      <button id="volverBtn">Volver atrás</button>
+      <a id="descargarBtn" download="foto.jpg">
+        <button>Descargar</button>
+      </a>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
