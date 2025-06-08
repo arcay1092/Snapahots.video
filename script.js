@@ -5,6 +5,13 @@ const ctx = canvas.getContext('2d');
 const extraerBtn = document.getElementById('extraerBtn');
 const limpiarBtn = document.getElementById('limpiarBtn');
 const contenedor = document.getElementById('imagenes');
+const mensajeToque = document.getElementById('mensajeToque');
+
+const modal = document.getElementById('modal');
+const imagenModal = document.getElementById('imagenModal');
+const cerrarModal = document.getElementById('cerrarModal');
+const volverBtn = document.getElementById('volverBtn');
+const descargarBtn = document.getElementById('descargarBtn');
 
 let duracion = 0;
 let archivoVideo = null;
@@ -17,7 +24,6 @@ videoInput.addEventListener('change', function () {
     video.load();
     video.onloadedmetadata = () => {
       duracion = video.duration;
-      console.log("Duración del video: " + duracion + " segundos");
     };
   }
 });
@@ -28,7 +34,8 @@ extraerBtn.addEventListener('click', async function () {
     return;
   }
 
-  contenedor.innerHTML = ''; // limpiar imágenes anteriores
+  contenedor.innerHTML = '';
+  mensajeToque.style.display = 'none';
 
   const tiempos = [];
   for (let i = 1; i <= 20; i++) {
@@ -39,6 +46,7 @@ extraerBtn.addEventListener('click', async function () {
     await capturarFrame(t);
   }
 
+  mensajeToque.style.display = 'block';
   alert("¡Listo! Se capturaron 20 imágenes.");
 });
 
@@ -68,29 +76,36 @@ function mostrarImagen(url) {
   const img = document.createElement('img');
   img.src = url;
 
-  const botonAbrir = document.createElement('button');
-  botonAbrir.textContent = 'Abrir';
-
-  // ✔️ Esto abrirá la imagen en una nueva pestaña, compatible con Chrome móvil
-  botonAbrir.addEventListener('click', () => {
-    const nuevaVentana = window.open(url, '_blank');
-    if (!nuevaVentana) {
-      alert("El navegador bloqueó la ventana emergente. Activa las ventanas emergentes para esta página.");
-    } else {
-      nuevaVentana.focus();
-    }
+  img.addEventListener('click', () => {
+    imagenModal.src = url;
+    descargarBtn.href = url;
+    modal.style.display = 'block';
   });
 
   contenedorImg.appendChild(img);
-  contenedorImg.appendChild(botonAbrir);
   contenedor.appendChild(contenedorImg);
 }
 
-limpiarBtn.addEventListener('click', function () {
+cerrarModal.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+volverBtn.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+limpiarBtn.addEventListener('click', () => {
   contenedor.innerHTML = '';
   video.src = '';
   videoInput.value = '';
   archivoVideo = null;
   duracion = 0;
+  mensajeToque.style.display = 'none';
   alert("Todo fue limpiado. Puedes subir un nuevo video.");
+});
+
+window.addEventListener('click', function (e) {
+  if (e.target === modal) {
+    modal.style.display = 'none';
+  }
 });
