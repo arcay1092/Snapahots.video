@@ -1,7 +1,6 @@
-/* Estilo general */
 body {
   font-family: sans-serif;
-  background: slategray; /* gris medio claro */
+  background: slategray;
   padding: 20px;
   text-align: center;
   margin: 0;
@@ -14,56 +13,44 @@ body {
 
 .portada {
   width: 100%;
-  background-color: #1976d2; /* Azul medio */
+  background-color: #1976d2;
   color: white;
   padding: 20px 10px;
   text-align: center;
-  border-radius: 15px; /* Bordes redondeados */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra más notoria */
-  margin-bottom: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto 20px auto;
 }
 
 .portada h1 {
   margin: 0;
   font-size: 2em;
 }
-/* Título */
-h1 {
-  font-size: 2em;
-  margin-top: 20px;
-  color: #333;
-}
 
-/* Estilo del input */
 input[type="file"] {
   margin: 10px 0;
   font-size: 1em;
 }
 
-/* Botones principales */
 button {
   padding: 15px 25px;
   margin: 10px 8px;
   font-size: 18px;
   border: none;
-  background: #888; /* gris más oscuro que el fondo */
+  background: #888;
   color: white;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-/* Hover con efecto visual */
 button:hover {
   background: #666;
   transform: scale(1.05);
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-/* Contenedor de imágenes */
 #imagenes {
   display: flex;
   flex-wrap: wrap;
@@ -71,28 +58,24 @@ button:hover {
   padding-top: 20px;
 }
 
-/* Tarjetas de imagen */
 .img-container {
-  display: inline-block;
   margin: 10px;
   text-align: center;
 }
 
-/* Imagen individual */
 img {
   max-width: 180px;
   border: 1px solid #ccc;
   border-radius: 5px;
   display: block;
   margin-bottom: 5px;
+  cursor: pointer;
 }
 
-/* Canvas oculto */
 canvas {
   display: none;
 }
 
-/* Responsive para móviles */
 @media (max-width: 600px) {
   h1 {
     font-size: 1.5em;
@@ -106,4 +89,49 @@ canvas {
   img {
     max-width: 100%;
   }
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  padding-top: 30px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background-color: rgba(0,0,0,0.95);
+  box-sizing: border-box;
+}
+
+.imagen-modal {
+  display: block;
+  max-width: 90%;
+  max-height: 70vh;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+#cerrarModal {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.botones-modal {
+  text-align: center;
+  margin-top: 20px;
+  padding-bottom: 30px;
+}
+
+.botones-modal button {
+  margin: 10px;
+  padding: 12px 20px;
+  font-size: 16px;
 }
